@@ -5,9 +5,7 @@ interface pageProps { }
 
 const page: FC<pageProps> = ({ }) => {
 	return (
-		<div className='border'>
-			<Button  />
-		</div>
+		<Button>Button</Button>
 	)
 }
 
