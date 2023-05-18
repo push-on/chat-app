@@ -34,9 +34,10 @@ export const authOptions: NextAuthOptions = {
 			clientSecret: getGoogleCredentials().clientSecret,
 		}),
 	],
-	callbacks: {
+	callbacks: { 
 		async jwt({ token, user }: any) {
-			const dbUser = (await db.get(`user:${token.id}`)) as User | null
+			const dbUser = (await db.get(`user:${token.id}`)) as
+				User | null
 			if (!dbUser) {
 				token.id = user!.id
 				return token
@@ -55,7 +56,6 @@ export const authOptions: NextAuthOptions = {
 				session.user.email = token.email
 				session.user.image = token.picture
 			}
-
 			return session
 		},
 		redirect() {
