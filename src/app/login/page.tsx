@@ -5,10 +5,7 @@ import { FC, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { toast } from 'react-hot-toast'
 
-
-interface pageProps {
-
-}
+interface pageProps { }
 
 const page: FC<pageProps> = ({ }) => {
 	const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -17,7 +14,6 @@ const page: FC<pageProps> = ({ }) => {
 		setIsLoading(true)
 		try {
 			// throw new Error("test")
-
 			await signIn('google')
 		} catch (error) {
 			// display error to user
@@ -75,7 +71,6 @@ const page: FC<pageProps> = ({ }) => {
 				</Button>
 			</div>
 		</div>
-
 	</>
 }
 
