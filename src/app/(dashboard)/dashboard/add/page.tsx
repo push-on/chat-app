@@ -7,7 +7,7 @@ interface pageProps {
 
 const page: FC<pageProps> = ({}) => {
 	return <main className='pt-8'>
-		<h1 className='font-bold text-5xl mb-8'>add a friend</h1>
+		<h1 className='font-bold text-5xl mb-8'>Add a friend</h1>
 		<AddFriendButton/>
 	</main>
 }
