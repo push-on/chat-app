@@ -2,12 +2,26 @@
 
 import { FC } from 'react'
 import Button from './ui/Button'
+import { addFriendValidator } from '@/lib/validation/add-friend'
+import axios from 'axios'
 
 interface AddFriendButtonProps {
 
 }
 
 const AddFriendButton: FC<AddFriendButtonProps> = ({ }) => {
+
+	const addFriend = async(email:string) => {
+		try {
+			const validatedEmail = addFriendValidator.parse({ email })
+			await axios.post('/api/friends/add', {
+				email: validatedEmail,
+			})
+		} catch (error) {
+			
+		}
+	}
+
 	return <form className='max-w-sm'>
 		<label htmlFor='email' className='block text-sm font-medium leading-6 text-gray-900 '>
 			Add friend by E-mail
